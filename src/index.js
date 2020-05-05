@@ -179,6 +179,9 @@ class SubjectEditorPlugin {
     document.querySelector(`.subject${subjectIndex}`).remove();
     delete this.subjects[subjectIndex];
     this.resortSubject(subjectIndex - 1, 'delete');
+    if (!Object.keys(this.subjects).length) {
+      document.querySelector('.add-subject-wrap-hook').style.display = 'block';
+    }
   };
 
   moveSubject (direction, e) {
